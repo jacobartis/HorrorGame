@@ -1,0 +1,114 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Textures/Finnish Flag/finnishFlag.tres" type="Material" id=2]
+[ext_resource path="res://Shaders/pixelateGreenShader.tres" type="Material" id=3]
+[ext_resource path="res://shaderController.gd" type="Script" id=4]
+[ext_resource path="res://default_env.tres" type="Environment" id=5]
+[ext_resource path="res://Map Resources/Lamp.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Map Resources/Amogus.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Map Resources/Note.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Textures/light.png" type="Texture" id=10]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="PlaneMesh" id=8]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 50, 0.5, 50 )
+
+[sub_resource type="PlaneMesh" id=5]
+material = ExtResource( 2 )
+size = Vector2( 100, 100 )
+center_offset = Vector3( 0, 0.5, 0 )
+
+[node name="World" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+camera_path = NodePath("ViewportContainer/Viewport/Camera")
+raycast_path = NodePath("ViewportContainer/Viewport/Camera/RayCast")
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Player"]
+material = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2.0
+margin_right = -2.0
+input_pass_on_modal_close_click = false
+stretch = true
+script = ExtResource( 4 )
+light2d_path = NodePath("Light2D")
+
+[node name="Viewport" type="Viewport" parent="Player/ViewportContainer"]
+size = Vector2( 1980, 1080 )
+handle_input_locally = false
+render_target_update_mode = 3
+audio_listener_enable_3d = true
+gui_disable_input = true
+
+[node name="Camera" type="Camera" parent="Player/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+environment = ExtResource( 5 )
+current = true
+fov = 80.0
+
+[node name="RayCast" type="RayCast" parent="Player/ViewportContainer/Viewport/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+collision_mask = 3
+
+[node name="Light2D" type="Light2D" parent="Player/ViewportContainer"]
+use_parent_material = true
+position = Vector2( 992, 543 )
+scale = Vector2( 7.71875, 4.20313 )
+texture = ExtResource( 10 )
+texture_scale = 4.0
+mode = 2
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24007, -5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Area"]
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00844431, -0.0451975, -0.0168619 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 5 )
+
+[node name="Lamp" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0297, 0, 0.954 )
+
+[node name="Lamp2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.1695, -4.76837e-07, 5.95634 )
+
+[node name="Lamp3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.00226, -4.76837e-07, -11.6196 )
+
+[node name="Amogus" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 3.6998, 1.40189, -9.66559 )
+
+[node name="Note" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.4, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, -11.8375 )
+
+[connection signal="health_changed" from="Player" to="Player/ViewportContainer" method="_on_Player_health_changed"]
+[connection signal="player_dead" from="Player" to="Player" method="_on_Player_player_dead"]
+[connection signal="player_dead" from="Player" to="Player/ViewportContainer" method="_on_Player_player_dead"]
+[connection signal="body_entered" from="Area" to="Player" method="_on_Area_body_entered"]
