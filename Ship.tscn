@@ -1,0 +1,1395 @@
+[gd_scene load_steps=115 format=2]
+
+[ext_resource path="res://Textures/Metal/SecurityWalls.tres" type="Material" id=1]
+[ext_resource path="res://Textures/Metal Plates/SecurityFloor.tres" type="Material" id=2]
+[ext_resource path="res://Textures/Metal Plates/EngineFloor.tres" type="Material" id=3]
+[ext_resource path="res://Textures/Metal Plates/ReactorFloor.tres" type="Material" id=4]
+[ext_resource path="res://Textures/Metal/ReactorWalls.tres" type="Material" id=5]
+[ext_resource path="res://Map Resources/Doors.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Map Resources/securityDoor.gd" type="Script" id=7]
+[ext_resource path="res://Camera Components/Camera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://PlayerController.gd" type="Script" id=9]
+[ext_resource path="res://Camera Components/RayCast.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Camera Components/Light2D.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Camera Components/Viewport.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Camera Components/ViewportContainer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Map Resources/Vent.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Map Resources/Desk.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Map Resources/upperEngineDoor.gd" type="Script" id=16]
+[ext_resource path="res://Map Resources/Light.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Map Resources/ECorridorLight.gd" type="Script" id=18]
+[ext_resource path="res://Map Resources/StorageDoor.gd" type="Script" id=19]
+[ext_resource path="res://Map Resources/Reactor.tscn" type="PackedScene" id=20]
+
+[sub_resource type="PlaneMesh" id=18]
+material = ExtResource( 3 )
+size = Vector2( 25, 6 )
+
+[sub_resource type="BoxShape" id=19]
+extents = Vector3( 12.5, 0.25, 3 )
+
+[sub_resource type="PlaneMesh" id=20]
+material = ExtResource( 1 )
+size = Vector2( 25, 6 )
+
+[sub_resource type="PlaneMesh" id=21]
+material = ExtResource( 3 )
+size = Vector2( 16, 4 )
+
+[sub_resource type="BoxShape" id=22]
+extents = Vector3( 8, 0.25, 2 )
+
+[sub_resource type="PlaneMesh" id=23]
+material = ExtResource( 1 )
+size = Vector2( 16, 4 )
+
+[sub_resource type="CubeMesh" id=4]
+material = ExtResource( 1 )
+size = Vector3( 10, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 5, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=24]
+material = ExtResource( 1 )
+size = Vector3( 5.5, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=25]
+extents = Vector3( 2.75, 2.5, 0.25 )
+
+[sub_resource type="BoxShape" id=26]
+extents = Vector3( 2.3499, 2.30858, 2.73337 )
+
+[sub_resource type="PlaneMesh" id=27]
+material = ExtResource( 3 )
+size = Vector2( 15, 15 )
+
+[sub_resource type="BoxShape" id=28]
+extents = Vector3( 7.5, 0.25, 7.5 )
+
+[sub_resource type="PlaneMesh" id=29]
+material = ExtResource( 1 )
+size = Vector2( 15, 15 )
+
+[sub_resource type="BoxShape" id=30]
+extents = Vector3( 3, 3, 5 )
+
+[sub_resource type="CubeMesh" id=31]
+material = ExtResource( 1 )
+size = Vector3( 15, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=32]
+extents = Vector3( 7.5, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=33]
+material = ExtResource( 1 )
+size = Vector3( 6, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=34]
+extents = Vector3( 3, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=35]
+material = ExtResource( 1 )
+size = Vector3( 6, 1, 0.5 )
+
+[sub_resource type="BoxShape" id=36]
+extents = Vector3( 3, 0.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=37]
+material = ExtResource( 1 )
+size = Vector3( 8, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=38]
+extents = Vector3( 4, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=39]
+material = ExtResource( 1 )
+size = Vector3( 6, 1, 0.5 )
+
+[sub_resource type="BoxShape" id=40]
+extents = Vector3( 3, 0.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=41]
+material = ExtResource( 1 )
+size = Vector3( 6, 1, 0.5 )
+
+[sub_resource type="BoxShape" id=42]
+extents = Vector3( 3, 0.5, 0.25 )
+
+[sub_resource type="PlaneMesh" id=43]
+material = ExtResource( 4 )
+size = Vector2( 35, 20 )
+
+[sub_resource type="BoxShape" id=44]
+extents = Vector3( 17.5, 0.25, 10 )
+
+[sub_resource type="PlaneMesh" id=45]
+material = ExtResource( 1 )
+size = Vector2( 35, 20 )
+
+[sub_resource type="CubeMesh" id=46]
+material = ExtResource( 5 )
+size = Vector3( 9, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=47]
+extents = Vector3( 4.5, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=48]
+material = ExtResource( 5 )
+size = Vector3( 7, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 3.5, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=93]
+material = ExtResource( 5 )
+size = Vector3( 7, 1, 0.5 )
+
+[sub_resource type="BoxShape" id=94]
+extents = Vector3( 3.5, 0.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=49]
+material = ExtResource( 5 )
+size = Vector3( 5.5, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=50]
+extents = Vector3( 2.75, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=51]
+material = ExtResource( 5 )
+size = Vector3( 30, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=52]
+extents = Vector3( 15, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=53]
+material = ExtResource( 5 )
+size = Vector3( 16, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=54]
+extents = Vector3( 8, 2.5, 0.25 )
+
+[sub_resource type="PlaneMesh" id=55]
+material = ExtResource( 3 )
+size = Vector2( 12, 4 )
+
+[sub_resource type="BoxShape" id=56]
+extents = Vector3( 6, 0.25, 2 )
+
+[sub_resource type="PlaneMesh" id=57]
+material = ExtResource( 1 )
+size = Vector2( 12, 4 )
+
+[sub_resource type="PlaneMesh" id=58]
+material = ExtResource( 1 )
+size = Vector2( 12, 4 )
+
+[sub_resource type="PlaneMesh" id=59]
+material = ExtResource( 3 )
+size = Vector2( 24, 4 )
+
+[sub_resource type="BoxShape" id=60]
+extents = Vector3( 12, 0.25, 2 )
+
+[sub_resource type="PlaneMesh" id=61]
+material = ExtResource( 1 )
+size = Vector2( 24, 4 )
+
+[sub_resource type="CubeMesh" id=62]
+material = ExtResource( 1 )
+size = Vector3( 16, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=63]
+extents = Vector3( 8, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=64]
+material = ExtResource( 1 )
+size = Vector3( 4, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=65]
+extents = Vector3( 2, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=66]
+material = ExtResource( 1 )
+size = Vector3( 13, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=67]
+extents = Vector3( 6.5, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=68]
+material = ExtResource( 1 )
+size = Vector3( 12, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=69]
+extents = Vector3( 6, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=70]
+material = ExtResource( 1 )
+size = Vector3( 25, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=71]
+extents = Vector3( 12.5, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=72]
+material = ExtResource( 1 )
+size = Vector3( 4, 1, 0.5 )
+
+[sub_resource type="BoxShape" id=73]
+extents = Vector3( 2, 0.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=74]
+material = ExtResource( 1 )
+size = Vector3( 12.5, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=75]
+extents = Vector3( 6.25, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=76]
+material = ExtResource( 1 )
+size = Vector3( 4.25, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=77]
+extents = Vector3( 2.125, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=78]
+material = ExtResource( 1 )
+size = Vector3( 27, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=79]
+extents = Vector3( 13.5, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=80]
+material = ExtResource( 1 )
+size = Vector3( 22, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=81]
+extents = Vector3( 11, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=82]
+material = ExtResource( 1 )
+size = Vector3( 10, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=83]
+extents = Vector3( 5, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=84]
+material = ExtResource( 1 )
+size = Vector3( 5, 1, 0.5 )
+
+[sub_resource type="BoxShape" id=85]
+extents = Vector3( 2.5, 0.5, 0.25 )
+
+[sub_resource type="PlaneMesh" id=86]
+material = ExtResource( 2 )
+size = Vector2( 27, 18 )
+
+[sub_resource type="BoxShape" id=87]
+extents = Vector3( 13.5, 0.25, 9 )
+
+[sub_resource type="PlaneMesh" id=88]
+material = ExtResource( 1 )
+size = Vector2( 27, 18 )
+
+[sub_resource type="PlaneMesh" id=89]
+material = ExtResource( 2 )
+size = Vector2( 10, 6 )
+
+[sub_resource type="BoxShape" id=90]
+extents = Vector3( 5, 0.25, 3 )
+
+[sub_resource type="PlaneMesh" id=91]
+material = ExtResource( 1 )
+size = Vector2( 10, 6 )
+
+[sub_resource type="PlaneMesh" id=1]
+material = ExtResource( 2 )
+size = Vector2( 12, 8 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 6, 0.25, 4 )
+
+[sub_resource type="PlaneMesh" id=3]
+material = ExtResource( 1 )
+size = Vector2( 12, 8 )
+
+[sub_resource type="CubeMesh" id=6]
+material = ExtResource( 1 )
+size = Vector3( 7, 5, 0.5 )
+
+[sub_resource type="CubeMesh" id=8]
+material = ExtResource( 1 )
+size = Vector3( 2.5, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1.25, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=10]
+material = ExtResource( 1 )
+size = Vector3( 2.5, 1, 0.5 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 1.25, 0.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=12]
+material = ExtResource( 1 )
+size = Vector3( 8, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 4, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=14]
+material = ExtResource( 1 )
+size = Vector3( 5, 5, 0.5 )
+
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 2.5, 2.5, 0.25 )
+
+[sub_resource type="BoxShape" id=16]
+extents = Vector3( 4.5, 2.5, 0.25 )
+
+[sub_resource type="CubeMesh" id=17]
+material = ExtResource( 1 )
+size = Vector3( 9, 5, 0.5 )
+
+[sub_resource type="CapsuleShape" id=92]
+radius = 0.25
+height = 1.5
+
+[node name="World" type="Spatial"]
+
+[node name="Ship" type="Spatial" parent="."]
+
+[node name="EngineHallway" type="Spatial" parent="Ship"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 12 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="NSFoor" type="StaticBody" parent="Ship/EngineHallway"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/NSFoor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0095768, 4.76837e-07, 0.00257397 )
+mesh = SubResource( 18 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/NSFoor"]
+shape = SubResource( 19 )
+
+[node name="NSRoof" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/NSRoof"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00339961, 0.00753164, -0.00627995 )
+mesh = SubResource( 20 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/NSRoof"]
+shape = SubResource( 19 )
+
+[node name="WEFoor" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/WEFoor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 0 )
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/WEFoor"]
+shape = SubResource( 22 )
+
+[node name="WERoof" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( -1.62921e-07, -3.25841e-07, -1, 0, -1, 3.25841e-07, -1, 5.30863e-14, 1.62921e-07, 0, 5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/WERoof"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0 )
+mesh = SubResource( 23 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/WERoof"]
+shape = SubResource( 22 )
+
+[node name="EastWall1" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25, 2.5, -3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/EastWall1"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/EastWall1"]
+shape = SubResource( 5 )
+
+[node name="WestWall1" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.25, 2.5, 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/WestWall1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010808, -9.53674e-07, -0.0229645 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/WestWall1"]
+shape = SubResource( 5 )
+
+[node name="EastWall2" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 2.5, -3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/EastWall2"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/EastWall2"]
+shape = SubResource( 5 )
+
+[node name="WestWall2" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2.5, 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/WestWall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010808, -9.53674e-07, -0.0229645 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/WestWall2"]
+shape = SubResource( 5 )
+
+[node name="NorthWall2" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -1.501, 2.5, -5.501 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/NorthWall2"]
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/NorthWall2"]
+shape = SubResource( 25 )
+
+[node name="SouthWall2" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 1.5, 2.5, -5.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/SouthWall2"]
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/SouthWall2"]
+shape = SubResource( 25 )
+
+[node name="NorthWall1" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -1.5, 2.5, 5.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/NorthWall1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, 0 )
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/NorthWall1"]
+shape = SubResource( 25 )
+
+[node name="SouthWall1" type="StaticBody" parent="Ship/EngineHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 1.5, 2.5, 5.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/EngineHallway/SouthWall1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0, 0 )
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/SouthWall1"]
+shape = SubResource( 25 )
+
+[node name="UpperEngineDoor" parent="Ship/EngineHallway" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -11.4139, 1.99221, 0.0554342 )
+script = ExtResource( 16 )
+
+[node name="LowerEngineDoor" parent="Ship/EngineHallway" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 11.5, 2, 0 )
+
+[node name="Area" type="Area" parent="Ship/EngineHallway"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/EngineHallway/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.20428, 2.22221, 0 )
+shape = SubResource( 26 )
+
+[node name="Light" parent="Ship/EngineHallway" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 5, 0 )
+script = ExtResource( 18 )
+lightStrength = 1.0
+flickerInterval = 1.5
+
+[node name="Light2" parent="Ship/EngineHallway" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, -6, 5, 0 )
+script = ExtResource( 18 )
+lightStrength = 1.0
+flickerInterval = 1.5
+
+[node name="Light3" parent="Ship/EngineHallway" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 6, 5, 0 )
+script = null
+
+[node name="ReactorDoor" parent="Ship/EngineHallway" instance=ExtResource( 6 )]
+transform = Transform( -1.62921e-07, 0, 0.75, 0, 1.5, 0, -1, 0, -1.22191e-07, 0, 2.25, 7.983 )
+
+[node name="UpperEngine" type="Spatial" parent="Ship"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1.24086, 0, -5.42396e-08, -17, 0, 12.25 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor" type="StaticBody" parent="Ship/UpperEngine"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/UpperEngine/Floor"]
+mesh = SubResource( 27 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/Floor"]
+shape = SubResource( 28 )
+
+[node name="Roof" type="StaticBody" parent="Ship/UpperEngine"]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/UpperEngine/Roof"]
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/Roof"]
+shape = SubResource( 28 )
+
+[node name="Engine" type="StaticBody" parent="Ship/UpperEngine"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -1.90735e-06 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/Engine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, 2 )
+shape = SubResource( 30 )
+
+[node name="NorthWall" type="StaticBody" parent="Ship/UpperEngine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 7.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/UpperEngine/NorthWall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010808, -9.53674e-07, -0.0229645 )
+mesh = SubResource( 31 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/NorthWall"]
+shape = SubResource( 32 )
+
+[node name="WestWall" type="StaticBody" parent="Ship/UpperEngine"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 7.5, 2.5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/UpperEngine/WestWall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010808, -9.53674e-07, -0.0229645 )
+mesh = SubResource( 31 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/WestWall"]
+shape = SubResource( 32 )
+
+[node name="EastWall1" type="StaticBody" parent="Ship/UpperEngine"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -7.5, 2.5, 5.225 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/UpperEngine/EastWall1"]
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/EastWall1"]
+shape = SubResource( 34 )
+
+[node name="EastWall2" type="StaticBody" parent="Ship/UpperEngine"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -7.5, 2.5, -5.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/UpperEngine/EastWall2"]
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/EastWall2"]
+shape = SubResource( 34 )
+
+[node name="SouthWall3" type="StaticBody" parent="Ship/UpperEngine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2.5, -7.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/UpperEngine/SouthWall3"]
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/SouthWall3"]
+shape = SubResource( 34 )
+
+[node name="SouthWall1" type="StaticBody" parent="Ship/UpperEngine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -7.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/UpperEngine/SouthWall1"]
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/SouthWall1"]
+shape = SubResource( 34 )
+
+[node name="SouthWall2" type="StaticBody" parent="Ship/UpperEngine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0490007, 4.6, -7.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/UpperEngine/SouthWall2"]
+mesh = SubResource( 35 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/SouthWall2"]
+shape = SubResource( 36 )
+
+[node name="NorthWestWall" type="StaticBody" parent="Ship/UpperEngine"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 5, 2.5, 5.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/UpperEngine/NorthWestWall"]
+mesh = SubResource( 37 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/UpperEngine/NorthWestWall"]
+shape = SubResource( 38 )
+
+[node name="LowerEngine" type="Spatial" parent="Ship"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 12 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Floor" type="StaticBody" parent="Ship/LowerEngine"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/Floor"]
+mesh = SubResource( 27 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/Floor"]
+shape = SubResource( 28 )
+
+[node name="Roof" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0, 1, 0, 5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/Roof"]
+mesh = SubResource( 29 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/Roof"]
+shape = SubResource( 28 )
+
+[node name="Engine" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/Engine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, 2 )
+shape = SubResource( 30 )
+
+[node name="WestWall" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 7.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/WestWall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010808, -9.53674e-07, -0.0229645 )
+mesh = SubResource( 31 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/WestWall"]
+shape = SubResource( 32 )
+
+[node name="SouthWall" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 7.5, 2.5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/SouthWall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010808, -9.53674e-07, -0.0229645 )
+mesh = SubResource( 31 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/SouthWall"]
+shape = SubResource( 32 )
+
+[node name="NorthWall1" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -7.5, 2.5, 5.725 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/NorthWall1"]
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/NorthWall1"]
+shape = SubResource( 34 )
+
+[node name="NorthWall2" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -7.5, 4.64953, -0.0970325 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/NorthWall2"]
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/NorthWall2"]
+shape = SubResource( 40 )
+
+[node name="NorthWall3" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -7.5, 2.5, -6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/NorthWall3"]
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/NorthWall3"]
+shape = SubResource( 34 )
+
+[node name="EastWall1" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -7.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/EastWall1"]
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/EastWall1"]
+shape = SubResource( 34 )
+
+[node name="EastWall2" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136835, 5.00238, -7.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/EastWall2"]
+mesh = SubResource( 41 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/EastWall2"]
+shape = SubResource( 42 )
+
+[node name="EastWall3" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -7.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/EastWall3"]
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/EastWall3"]
+shape = SubResource( 34 )
+
+[node name="SouthWestWall" type="StaticBody" parent="Ship/LowerEngine"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 5, 2.5, 5.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/LowerEngine/SouthWestWall"]
+mesh = SubResource( 37 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/LowerEngine/SouthWestWall"]
+shape = SubResource( 38 )
+
+[node name="Vent" parent="Ship/LowerEngine" instance=ExtResource( 14 )]
+transform = Transform( 0.75, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.001, -6 )
+
+[node name="Reactor" type="Spatial" parent="Ship"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 30 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Floor" type="StaticBody" parent="Ship/Reactor"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0154333, -0.00930786, 0.0318813 )
+mesh = SubResource( 43 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/Floor"]
+shape = SubResource( 44 )
+
+[node name="Roof" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/Roof"]
+mesh = SubResource( 45 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/Roof"]
+shape = SubResource( 44 )
+
+[node name="EastWall1" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, -5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/EastWall1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+mesh = SubResource( 46 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/EastWall1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+shape = SubResource( 47 )
+
+[node name="EastWall2" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.5, -10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/EastWall2"]
+mesh = SubResource( 48 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/EastWall2"]
+shape = SubResource( 7 )
+
+[node name="EastWall5" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/EastWall5"]
+mesh = SubResource( 93 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/EastWall5"]
+shape = SubResource( 94 )
+
+[node name="EastWall4" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2.5, -5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/EastWall4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+mesh = SubResource( 46 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/EastWall4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+shape = SubResource( 47 )
+
+[node name="EastWall3" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/EastWall3"]
+mesh = SubResource( 48 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/EastWall3"]
+shape = SubResource( 7 )
+
+[node name="SouthWall2" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 8.5, 2.5, -7.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/SouthWall2"]
+mesh = SubResource( 49 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/SouthWall2"]
+shape = SubResource( 50 )
+
+[node name="SouthWall1" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 17.5, 2.5, -2.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/SouthWall1"]
+mesh = SubResource( 49 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/SouthWall1"]
+shape = SubResource( 50 )
+
+[node name="NorthWall2" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -8.5, 2.5, -7.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/NorthWall2"]
+mesh = SubResource( 49 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/NorthWall2"]
+shape = SubResource( 50 )
+
+[node name="NorthWall1" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -17.5, 2.5, -2.5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/NorthWall1"]
+mesh = SubResource( 49 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/NorthWall1"]
+shape = SubResource( 50 )
+
+[node name="WestWall" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/WestWall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010808, -9.53674e-07, -0.0229645 )
+mesh = SubResource( 51 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/WestWall"]
+shape = SubResource( 52 )
+
+[node name="SouthWestWall" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 12, 2.5, 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/SouthWestWall"]
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/SouthWestWall"]
+shape = SubResource( 54 )
+
+[node name="NorthWestWall" type="StaticBody" parent="Ship/Reactor"]
+transform = Transform( 0.707107, 2.30405e-07, 0.707107, 0, -1, 3.25841e-07, 0.707107, -2.30405e-07, -0.707107, -12, 2.5, 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Reactor/NorthWestWall"]
+mesh = SubResource( 53 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Reactor/NorthWestWall"]
+shape = SubResource( 54 )
+
+[node name="SouthVent" parent="Ship/Reactor" instance=ExtResource( 14 )]
+transform = Transform( 0.75, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.001, -3 )
+
+[node name="NorthVent" parent="Ship/Reactor" instance=ExtResource( 14 )]
+transform = Transform( 0.75, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.001, 1 )
+
+[node name="Reactor" parent="Ship/Reactor" instance=ExtResource( 20 )]
+transform = Transform( -0.353553, 0, -0.353553, 0, 0.5, 0, 0.353553, 0, -0.353553, 0.869757, -0.0202203, 8.42886 )
+
+[node name="Light" parent="Ship/Reactor" instance=ExtResource( 17 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 1.62921e-07, 0, -1.62921e-07, -0.5, 0, 5, 0 )
+lightStrength = 1.0
+
+[node name="Light5" parent="Ship/Reactor" instance=ExtResource( 17 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 1.62921e-07, 0, -1.62921e-07, -0.5, 11, 5, 0 )
+lightStrength = 1.0
+
+[node name="Light6" parent="Ship/Reactor" instance=ExtResource( 17 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 1.62921e-07, 0, -1.62921e-07, -0.5, -11, 5, 0 )
+lightStrength = 1.0
+
+[node name="Light2" parent="Ship/Reactor" instance=ExtResource( 17 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 1.62921e-07, 0, -1.62921e-07, -0.5, 0, 5, -7 )
+lightStrength = 1.0
+
+[node name="Light3" parent="Ship/Reactor" instance=ExtResource( 17 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 1.62921e-07, 0, -1.62921e-07, -0.5, -5, 5, -7 )
+lightStrength = 1.0
+
+[node name="Light4" parent="Ship/Reactor" instance=ExtResource( 17 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 1.62921e-07, 0, -1.62921e-07, -0.5, 6, 5, -7 )
+lightStrength = 1.0
+
+[node name="ElectricalHallway" type="Spatial" parent="Ship"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, -10.25 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Floor1" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/Floor1"]
+mesh = SubResource( 55 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/Floor1"]
+shape = SubResource( 56 )
+
+[node name="Roof1" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/Roof1"]
+transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 5, 0 )
+mesh = SubResource( 57 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/Roof1"]
+shape = SubResource( 56 )
+
+[node name="Floor2" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, 4, 0, 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/Floor2"]
+mesh = SubResource( 55 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/Floor2"]
+shape = SubResource( 56 )
+
+[node name="Roof2" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 4, 5, 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/Roof2"]
+mesh = SubResource( 58 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/Roof2"]
+shape = SubResource( 56 )
+
+[node name="Floor3" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 12, 0, -9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/Floor3"]
+mesh = SubResource( 59 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/Floor3"]
+shape = SubResource( 60 )
+
+[node name="Roof3" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( -1.62921e-07, -3.25841e-07, -1, 0, -1, 3.25841e-07, -1, 5.30863e-14, 1.62921e-07, 12, 5, -9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/Roof3"]
+mesh = SubResource( 61 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/Roof3"]
+shape = SubResource( 60 )
+
+[node name="NorthWall1" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -2, 2.5, 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/NorthWall1"]
+mesh = SubResource( 62 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/NorthWall1"]
+shape = SubResource( 63 )
+
+[node name="NorthWall2" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 10, 2.5, -2.75 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/NorthWall2"]
+mesh = SubResource( 64 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/NorthWall2"]
+shape = SubResource( 65 )
+
+[node name="NorthWall3" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 10, 2.5, -15 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/NorthWall3"]
+mesh = SubResource( 66 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/NorthWall3"]
+shape = SubResource( 67 )
+
+[node name="SouthWall1" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 2, 2.5, 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/SouthWall1"]
+mesh = SubResource( 68 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/SouthWall1"]
+shape = SubResource( 69 )
+
+[node name="SouthWall2" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 14, 2.5, -9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/SouthWall2"]
+mesh = SubResource( 70 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/SouthWall2"]
+shape = SubResource( 71 )
+
+[node name="EastWall1" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, -1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/EastWall1"]
+mesh = SubResource( 68 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/EastWall1"]
+shape = SubResource( 69 )
+
+[node name="EastWall2" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4.75, -20 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/EastWall2"]
+mesh = SubResource( 72 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/EastWall2"]
+shape = SubResource( 73 )
+
+[node name="WestWall" type="StaticBody" parent="Ship/ElectricalHallway"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.5, 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/ElectricalHallway/WestWall"]
+mesh = SubResource( 74 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/ElectricalHallway/WestWall"]
+shape = SubResource( 75 )
+
+[node name="LowerEngineDoor" parent="Ship/ElectricalHallway" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1.5, 0, 1, 0, -4.37114e-08, 0, 2.26723, 14.739 )
+
+[node name="StorageDoor" parent="Ship/ElectricalHallway" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1.5, 0, 1, 0, -4.37114e-08, 12, 2.2, -20 )
+script = ExtResource( 19 )
+closeWaitTime = 0.0
+
+[node name="Electrical" type="Spatial" parent="Ship"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.75, 0, -20.75 )
+
+[node name="EastWall1" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.75, 2.5, -15.75 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/EastWall1"]
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/EastWall1"]
+shape = SubResource( 34 )
+
+[node name="EastWall2" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12468, 2.5, -11.0219 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/EastWall2"]
+mesh = SubResource( 33 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/EastWall2"]
+shape = SubResource( 34 )
+
+[node name="EastWall3" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.25, 2.5, 1.757 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/EastWall3"]
+mesh = SubResource( 76 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/EastWall3"]
+shape = SubResource( 77 )
+
+[node name="WestWall" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2.5, 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/WestWall"]
+mesh = SubResource( 78 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/WestWall"]
+shape = SubResource( 79 )
+
+[node name="NorthWall" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -15, 2.5, -5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/NorthWall"]
+mesh = SubResource( 80 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/NorthWall"]
+shape = SubResource( 81 )
+
+[node name="SouthEastWall1" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -6.75, 2.5, -13.75 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/SouthEastWall1"]
+mesh = SubResource( 37 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/SouthEastWall1"]
+shape = SubResource( 38 )
+
+[node name="SouthEastWall2" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 4.50812, 2.5, -8.24689 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/SouthEastWall2"]
+mesh = SubResource( 37 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/SouthEastWall2"]
+shape = SubResource( 38 )
+
+[node name="SouthWall2" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 7.38318, 2.5, -3.45292 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/SouthWall2"]
+mesh = SubResource( 82 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/SouthWall2"]
+shape = SubResource( 83 )
+
+[node name="SouthWall1" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 11.249, 4.75, 3.965 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/SouthWall1"]
+mesh = SubResource( 84 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/SouthWall1"]
+shape = SubResource( 85 )
+
+[node name="Floor1" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, -3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/Floor1"]
+mesh = SubResource( 86 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/Floor1"]
+shape = SubResource( 87 )
+
+[node name="Roof1" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 5, -3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/Roof1"]
+transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 0, 0 )
+mesh = SubResource( 88 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/Roof1"]
+shape = SubResource( 87 )
+
+[node name="Floor2" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.25, 0, -12.8476 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/Floor2"]
+mesh = SubResource( 89 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/Floor2"]
+shape = SubResource( 90 )
+
+[node name="Roof2" type="StaticBody" parent="Ship/Electrical"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.25, 0, -12.8476 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Electrical/Roof2"]
+transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 5, 0 )
+mesh = SubResource( 91 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Electrical/Roof2"]
+shape = SubResource( 90 )
+
+[node name="Vent" parent="Ship/Electrical" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, -12.2342, 0, 3.22249 )
+
+[node name="Door" parent="Ship/Electrical" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 11.25, 2.25, 3.9 )
+
+[node name="Security" type="Spatial" parent="Ship"]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Floor" type="StaticBody" parent="Ship/Security"]
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Security/Floor"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Security/Floor"]
+shape = SubResource( 2 )
+
+[node name="Roof" type="StaticBody" parent="Ship/Security"]
+transform = Transform( 1, 0, 0, 0, -1, 3.25841e-07, 0, -3.25841e-07, -1, 0, 5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Security/Roof"]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Security/Roof"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.125, 0 )
+shape = SubResource( 2 )
+
+[node name="EastWall" type="StaticBody" parent="Ship/Security"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.5, -4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Security/EastWall"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Security/EastWall"]
+shape = SubResource( 5 )
+
+[node name="WestWall1" type="StaticBody" parent="Ship/Security"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2.5, 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Security/WestWall1"]
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Security/WestWall1"]
+shape = SubResource( 7 )
+
+[node name="WestWall3" type="StaticBody" parent="Ship/Security"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Security/WestWall3"]
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Security/WestWall3"]
+shape = SubResource( 9 )
+
+[node name="WestWall2" type="StaticBody" parent="Ship/Security"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4.77076, 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Security/WestWall2"]
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Security/WestWall2"]
+shape = SubResource( 11 )
+
+[node name="NorthEastWall" type="StaticBody" parent="Ship/Security"]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -3.5, 2.5, -4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Security/NorthEastWall"]
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Security/NorthEastWall"]
+shape = SubResource( 13 )
+
+[node name="NorthWestWall" type="StaticBody" parent="Ship/Security"]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -3.5, 2.5, 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Security/NorthWestWall"]
+mesh = SubResource( 14 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Security/NorthWestWall"]
+shape = SubResource( 15 )
+
+[node name="NorthWall" type="StaticBody" parent="Ship/Security"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -6, 2.5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Security/NorthWall"]
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Security/NorthWall"]
+shape = SubResource( 16 )
+
+[node name="SouthWall" type="StaticBody" parent="Ship/Security"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 6, 2.5, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Ship/Security/SouthWall"]
+mesh = SubResource( 17 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Ship/Security/SouthWall"]
+shape = SubResource( 16 )
+
+[node name="Door" parent="Ship/Security" instance=ExtResource( 6 )]
+transform = Transform( -1.62921e-07, 0, 0.75, 0, 1.5, 0, -1, 0, -1.22191e-07, 2, 2.25, 4 )
+script = ExtResource( 7 )
+closeWaitTime = 10.0
+
+[node name="Vent" parent="Ship/Security" instance=ExtResource( 14 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.75, 4.74874, 0.0221709, -2.84985 )
+
+[node name="Desk" parent="Ship/Security" instance=ExtResource( 15 )]
+transform = Transform( 1.5, 0, 0, 0, 1.75, 0, 0, 0, 1.5, -4.288, 1, -0.034 )
+
+[node name="Player" type="KinematicBody" parent="." groups=[
+"Player",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.79665, 1.3051, 0 )
+input_ray_pickable = false
+script = ExtResource( 9 )
+camera_path = NodePath("ViewportContainer/Viewport/Camera")
+player_path = NodePath(".")
+raycast_path = NodePath("ViewportContainer/Viewport/Camera/RayCast")
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 92 )
+
+[node name="ViewportContainer" parent="Player" instance=ExtResource( 13 )]
+light2d_path = NodePath("Light2D")
+
+[node name="Light2D" parent="Player/ViewportContainer" instance=ExtResource( 11 )]
+position = Vector2( 987.704, 540.136 )
+
+[node name="Viewport" parent="Player/ViewportContainer" instance=ExtResource( 12 )]
+
+[node name="Camera" parent="Player/ViewportContainer/Viewport" instance=ExtResource( 8 )]
+
+[node name="RayCast" parent="Player/ViewportContainer/Viewport/Camera" instance=ExtResource( 10 )]
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, 0, 0 )
+[connection signal="body_entered" from="Ship/EngineHallway/Area" to="Ship/EngineHallway/Light2" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="Ship/EngineHallway/Area" to="Ship/EngineHallway/Light" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="Ship/EngineHallway/Area" to="Ship/EngineHallway/UpperEngineDoor" method="_on_Area_body_entered"]

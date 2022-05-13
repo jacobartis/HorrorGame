@@ -2,17 +2,17 @@
 
 [ext_resource path="res://Map Resources/Amogus.tres" type="Material" id=1]
 
-[sub_resource type="CapsuleMesh" id=3]
+[sub_resource type="CapsuleMesh" id=1]
 material = ExtResource( 1 )
 radius = 0.5
 mid_height = 0.75
 
-[sub_resource type="SphereMesh" id=9]
+[sub_resource type="SphereMesh" id=2]
 material = ExtResource( 1 )
 radius = 0.5
 height = 0.75
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=3]
 flags_unshaded = true
 params_cull_mode = 1
 params_grow = true
@@ -20,7 +20,7 @@ params_grow_amount = 0.05
 albedo_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="SpatialMaterial" id=4]
-next_pass = SubResource( 1 )
+next_pass = SubResource( 3 )
 params_diffuse_mode = 4
 params_specular_mode = 3
 albedo_color = Color( 0.443137, 0.443137, 0.443137, 1 )
@@ -49,20 +49,20 @@ transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0 )
 [node name="Body" type="Spatial" parent="."]
 
 [node name="MeshInstance2" type="MeshInstance" parent="Body"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.883761 )
-mesh = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.330973, -0.883761 )
+mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = null
 
 [node name="MeshInstance3" type="MeshInstance" parent="Body"]
 transform = Transform( 1, 0, 0, 0, 0.248893, -0.968531, 0, 0.968531, 0.248893, 0.382176, -0.864556, -0.655071 )
-mesh = SubResource( 9 )
+mesh = SubResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
 [node name="MeshInstance4" type="MeshInstance" parent="Body"]
 transform = Transform( 1, 0, 0, 0, 0.248893, -0.968531, 0, 0.968531, 0.248893, -0.422887, -0.864556, -0.733414 )
-mesh = SubResource( 9 )
+mesh = SubResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
@@ -117,7 +117,7 @@ material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="hat/Body2"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.883761 )
-mesh = SubResource( 3 )
+mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = null
 

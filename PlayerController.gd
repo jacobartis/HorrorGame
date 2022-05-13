@@ -49,6 +49,9 @@ func movement(delta):
 	var movement_direction: Vector3 = Vector3.ZERO
 	var current_speed: float = move_speed
 	
+	if !player_in_control:
+		return
+	
 	if Input.is_action_pressed("move_forward"):
 		movement_direction -= transform.basis.z
 	elif Input.is_action_pressed("move_backward"):
@@ -60,34 +63,41 @@ func movement(delta):
 		movement_direction += transform.basis.x
 	
 	#Checks if the player can jump (if they're on the floor)
-	if is_on_floor() && Input.is_action_pressed("jump"):
-		vertical_vector.y = jump_height
-	elif not is_on_floor():
-		vertical_vector.y -= gravity
+#	if is_on_floor() && Input.is_action_pressed("jump"):
+#		vertical_vector.y = jump_height
+#	elif not is_on_floor():
+#		vertical_vector.y -= gravity
 	
 	if stamina > 0 && Input.is_action_pressed("sprint"):
 		current_speed = move_speed*sprint_multiplier
 	
-	if player_in_control:
-		#Sets movement vector
-		movement_direction = movement_direction.normalized()
-		velocity = velocity.linear_interpolate(movement_direction*current_speed, acceleration * delta)
-		velocity = move_and_slide(velocity, Vector3.UP)
-		move_and_slide(vertical_vector, Vector3.UP)
-		
-		#changes camera position
-		camera.translation = player.translation + Vector3.UP
+	#Sets movement vector
+	movement_direction = movement_direction.normalized()
+	velocity = velocity.linear_interpolate(movement_direction*current_speed, acceleration * delta)
+	velocity = move_and_slide(velocity, Vector3.UP)
+	move_and_slide(vertical_vector, Vector3.UP)
+	
+	#changes camera position
+	camera.translation = player.translation + (Vector3.UP*1.5)
 
 #Handles moving the camera with the mouse
 func aim(event):
 	var mouse_motion = event as InputEventMouseMotion
-	if player_in_control:
-		if mouse_motion && mouse_status == mouse_lock.LOCKED:
-			var current_tilt = camera.rotation_degrees.x
-			camera.rotation_degrees.y -= mouse_motion.relative.x * mouse_sensitivity
-			current_tilt -= mouse_motion.relative.y * mouse_sensitivity
-			camera.rotation_degrees.x = clamp(current_tilt, -90, 90)
-			player.rotation_degrees.y = camera.rotation_degrees.y
+	
+	if !player_in_control:
+		return
+	
+	if !mouse_motion:
+		return
+	
+	if mouse_status != mouse_lock.LOCKED:
+		return
+	
+	var current_tilt = camera.rotation_degrees.x
+	camera.rotation_degrees.y -= mouse_motion.relative.x * mouse_sensitivity
+	current_tilt -= mouse_motion.relative.y * mouse_sensitivity
+	camera.rotation_degrees.x = clamp(current_tilt, -90, 90)
+	player.rotation_degrees.y = camera.rotation_degrees.y
 
 #Handles mouse mode operations
 func mouse_mode():
@@ -99,24 +109,37 @@ func mouse_mode():
 	match mouse_status:
 		mouse_lock.LOCKED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			
+			if !health > 0:
+				return
+			player_in_control = true
+		
 		mouse_lock.UNLOCKED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			player_in_control = false
 
 func interact():
 	
-	if Input.is_action_just_pressed("interact"):
-		var target: Object = raycast.get_collider()
-		if target != null && target.is_in_group("Note"):
-			target.being_read = true
-			print (1)
-		print (target)
+	if !Input.is_action_just_pressed("interact"):
+		return
+	
+	var target: Object = raycast.get_collider()
+	
+	if target == null:
+		return
+	
+	if target.is_in_group("Note"):
+		target.being_read = true
 
 func take_damage(damage):
+	
 	health = clamp(health - damage, 0, 100)
-	if health > 0:
-		emit_signal("health_changed", health)
-	else:
+	
+	if !health > 0:
 		emit_signal("player_dead")
+		return
+	
+	emit_signal("health_changed", health)
 
 
 func _on_Area_body_entered(body):

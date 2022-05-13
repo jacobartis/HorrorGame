@@ -26,7 +26,7 @@ void fragment()
 	float avg = (text.r + text.g + text.b)/3.0;
 	
 	
-	COLOR = vec4(text.r*red, avg + 0.025, avg, 1.0);
+	COLOR = vec4(text.r*red, avg + 0.03, avg+ 0.015, 1.0);
 }"
 
 [resource]

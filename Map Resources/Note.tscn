@@ -1,27 +1,28 @@
 [gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://Models/Note/Note.glb" type="PackedScene" id=1]
 [ext_resource path="res://Map Resources/noteController.gd" type="Script" id=2]
-[ext_resource path="res://Models/Material.material" type="Material" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Note_Plane"
 surfaces/0 = {
-"aabb": AABB( -1, 0, -1, 2, 1e-05, 2.00001 ),
-"array_data": PoolByteArray( 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 127, 130, 63, 255, 59, 145, 6, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 127, 130, 63, 142, 6, 141, 6, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 191, 0, 127, 130, 63, 255, 59, 255, 59, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 127, 130, 63, 141, 6, 255, 59 ),
-"array_index_data": PoolByteArray( 0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0 ),
+"aabb": AABB( 0, 0, 0, 0, 0, 0 ),
+"array_data": PoolByteArray(  ),
+"array_index_data": PoolByteArray(  ),
 "blend_shape_data": [  ],
-"format": 2194711,
-"index_count": 6,
-"material": ExtResource( 3 ),
-"primitive": 4,
+"format": 0,
+"index_count": 0,
+"primitive": 7,
 "skeleton_aabb": [  ],
-"vertex_count": 4
+"vertex_count": 0
 }
 
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( -1.00542, 0.00546448, -1.00546, 1.00546, 0.00546448, 1.00546, -1.00542, 0.00546448, 1.00546, 1.00546, 0.00546448, -1.00546 )
 
-[node name="Note" type="StaticBody" groups=["Note"]]
+[node name="Note" type="StaticBody" groups=[
+"Note",
+]]
 transform = Transform( 0.4, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 0
@@ -33,3 +34,5 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 2 )
+
+[node name="Note" parent="." instance=ExtResource( 1 )]

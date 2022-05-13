@@ -1,0 +1,13 @@
+[gd_resource type="SpatialMaterial" load_steps=4 format=2]
+
+[ext_resource path="res://Textures/Metal/Metal032_1K_Color.jpg" type="Texture" id=1]
+[ext_resource path="res://Textures/Metal/Metal032_1K_Roughness.jpg" type="Texture" id=2]
+[ext_resource path="res://Textures/Metal/Metal032_1K_Metalness.jpg" type="Texture" id=4]
+
+[resource]
+flags_world_triplanar = true
+albedo_color = Color( 0.403922, 0.403922, 0.403922, 1 )
+albedo_texture = ExtResource( 1 )
+metallic_texture = ExtResource( 4 )
+roughness_texture = ExtResource( 2 )
+uv1_triplanar = true
