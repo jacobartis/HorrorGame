@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/Light/Light.glb" type="PackedScene" id=1]
+[ext_resource path="res://Light.gd" type="Script" id=2]
+
+[node name="Light" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, -0.5, 1.62921e-07, 0, -1.62921e-07, -0.5, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="Circle" parent="." index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="." index="1"]
+transform = Transform( -2, 7.8162e-15, -1.78814e-07, 1.78814e-07, 8.74228e-08, -2, 0, -2, -8.74228e-08, 0, 0.254608, 0 )
+spot_range = 7.03775
+spot_angle = 37.3929

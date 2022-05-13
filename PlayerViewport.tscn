@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://Shaders/pixelateGreenShader.tres" type="Material" id=2]
+[ext_resource path="res://shaderController.gd" type="Script" id=3]
+[ext_resource path="res://Textures/light.png" type="Texture" id=4]
+
+[node name="ViewportContainer" type="ViewportContainer"]
+material = ExtResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_right = -3.0
+stretch = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+light2d_path = NodePath("Light2D")
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1980, 1080 )
+handle_input_locally = false
+render_target_update_mode = 3
+audio_listener_enable_3d = true
+gui_snap_controls_to_pixels = false
+
+[node name="Camera" type="Camera" parent="Viewport"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0 )
+environment = ExtResource( 1 )
+current = true
+fov = 80.0
+
+[node name="RayCast" type="RayCast" parent="Viewport/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+collision_mask = 2
+
+[node name="Light2D" type="Light2D" parent="."]
+use_parent_material = true
+position = Vector2( 992, 543 )
+scale = Vector2( 7.71875, 4.20313 )
+texture = ExtResource( 4 )
+texture_scale = 4.0
+mode = 2

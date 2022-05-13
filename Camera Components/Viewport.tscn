@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Viewport" type="Viewport"]
+size = Vector2( 1980, 1080 )
+handle_input_locally = false
+render_target_update_mode = 3
+audio_listener_enable_3d = true
+gui_snap_controls_to_pixels = false
